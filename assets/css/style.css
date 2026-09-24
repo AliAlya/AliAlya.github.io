@@ -518,6 +518,18 @@ a.hoverline:hover {
   height: 240px;
 }
 
+.card.medium .card-image img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.card.medium .card-image img.project-image-contain {
+  background: #fff;
+  object-fit: contain;
+}
+
 .card-action a.btn-floating {
   margin-bottom: 0;
 }

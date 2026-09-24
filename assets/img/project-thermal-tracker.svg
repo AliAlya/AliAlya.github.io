@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1090" height="612" viewBox="0 0 1090 612" role="img" aria-labelledby="title desc">
+  <title id="title">2-Axis Thermal Satellite Protection Laser System Architecture</title>
+  <desc id="desc">Block diagram showing inputs, Nucleo board processing stages, display output, servo and laser output, and manual-mode control path.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#5f7fba"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#ef3b2d"/>
+    </marker>
+    <style>
+      .title { font: 700 32px Georgia, "Times New Roman", serif; fill: #111; }
+      .label { font: 600 16px Georgia, "Times New Roman", serif; fill: #111; }
+      .small { font: 500 15px Georgia, "Times New Roman", serif; fill: #111; }
+      .red { fill: #ef3b2d; }
+      .board { fill: #d9d9d9; stroke: #6f8fcf; stroke-width: 1.2; }
+      .bluebox { fill: #dceeff; stroke: #222; stroke-width: 1.5; }
+      .greenbox { fill: #e5f0dc; stroke: #222; stroke-width: 1.5; }
+      .cream { fill: #fff1dc; stroke: #222; stroke-width: 1.5; }
+      .pink { fill: #f5dada; stroke: #222; stroke-width: 1.5; }
+      .purple { fill: #e5dcff; stroke: #222; stroke-width: 1.5; }
+      .cyan { fill: #e8f5f8; stroke: #222; stroke-width: 1.5; }
+      .yellow { fill: #fff6d7; stroke: #222; stroke-width: 1.5; }
+      .wire { stroke: #555; stroke-width: 3; fill: none; }
+      .bluewire { stroke: #5f7fba; stroke-width: 2; fill: none; marker-end: url(#arrow-blue); }
+      .redwire { stroke: #ef3b2d; stroke-width: 3; fill: none; stroke-dasharray: 4 4; marker-end: url(#arrow-red); }
+    </style>
+  </defs>
+
+  <rect width="1090" height="612" fill="#ffffff"/>
+  <text x="545" y="56" text-anchor="middle" class="title">2-Axis Thermal Satellite Protection Laser System</text>
+
+  <rect x="194" y="150" width="796" height="178" rx="28" class="board"/>
+  <text x="222" y="174" class="small">Nucleo Board</text>
+
+  <g filter="url(#shadow)">
+    <rect x="20" y="86" width="143" height="87" rx="10" class="bluebox"/>
+    <text x="91" y="136" text-anchor="middle" class="label">Buttons</text>
+
+    <rect x="20" y="195" width="143" height="86" rx="10" class="bluebox"/>
+    <text x="91" y="224" text-anchor="middle" class="label">AMG8833</text>
+    <text x="91" y="245" text-anchor="middle" class="label">Thermal</text>
+    <text x="91" y="266" text-anchor="middle" class="label">Sensor</text>
+
+    <rect x="20" y="323" width="143" height="86" rx="10" class="bluebox"/>
+    <text x="91" y="372" text-anchor="middle" class="label">Joystick</text>
+
+    <rect x="214" y="194" width="136" height="86" rx="11" class="greenbox"/>
+    <text x="282" y="229" text-anchor="middle" class="label">Frame</text>
+    <text x="282" y="254" text-anchor="middle" class="label">Acquisition</text>
+
+    <rect x="370" y="194" width="136" height="86" rx="11" class="cream"/>
+    <text x="438" y="222" text-anchor="middle" class="label">Interpolation</text>
+    <text x="438" y="244" text-anchor="middle" class="label">+</text>
+    <text x="438" y="266" text-anchor="middle" class="label">Frame Processing</text>
+
+    <rect x="526" y="194" width="136" height="86" rx="11" class="pink"/>
+    <text x="594" y="244" text-anchor="middle" class="label">FSM</text>
+
+    <rect x="682" y="194" width="136" height="86" rx="11" class="greenbox"/>
+    <text x="750" y="233" text-anchor="middle" class="label">Kalman</text>
+    <text x="750" y="256" text-anchor="middle" class="label">(Timers)</text>
+
+    <rect x="838" y="194" width="136" height="86" rx="11" class="purple"/>
+    <text x="906" y="244" text-anchor="middle" class="label">PID Tracking</text>
+
+    <rect x="373" y="363" width="130" height="84" rx="10" class="cyan"/>
+    <text x="438" y="397" text-anchor="middle" class="label">ST7735</text>
+    <text x="438" y="421" text-anchor="middle" class="label">Display</text>
+
+    <rect x="848" y="381" width="116" height="84" rx="10" class="yellow"/>
+    <text x="906" y="415" text-anchor="middle" class="label">Servo +</text>
+    <text x="906" y="439" text-anchor="middle" class="label">Laser</text>
+  </g>
+
+  <path d="M163 238 H214" class="wire"/>
+  <text x="163" y="232" class="small">I2C</text>
+  <path d="M350 238 H370" class="wire"/>
+  <path d="M506 238 H526" class="wire"/>
+  <path d="M662 238 H682" class="wire"/>
+  <path d="M818 238 H838" class="wire"/>
+  <path d="M906 280 V381" class="wire"/>
+  <text x="804" y="372" class="small">PWM + GPIO</text>
+
+  <path d="M438 363 V280" class="wire"/>
+  <text x="344" y="353" class="small">SPI + DMA</text>
+
+  <path d="M281 440 V283" class="bluewire"/>
+  <line x1="281" y1="440" x2="281" y2="283" stroke="#5f7fba" stroke-width="1.5"/>
+
+  <text x="184" y="122" class="small">Interrupts</text>
+  <path d="M163 129 H594 V194" class="redwire"/>
+
+  <text x="193" y="363" class="small">ADC</text>
+  <path d="M163 365 H185 V306 H595 V194" class="redwire"/>
+
+  <text x="535" y="326" class="small red">MANUAL MODE</text>
+  <path d="M163 365 H718 V422 H848" class="redwire"/>
+
+  <g>
+    <rect x="210" y="439" width="140" height="140" fill="#5d1db5"/>
+    <rect x="210" y="439" width="17.5" height="17.5" fill="#4a16a3"/>
+    <rect x="227.5" y="439" width="17.5" height="17.5" fill="#551aa8"/>
+    <rect x="245" y="439" width="17.5" height="17.5" fill="#6b23b0"/>
+    <rect x="262.5" y="439" width="17.5" height="17.5" fill="#7c31aa"/>
+    <rect x="280" y="439" width="17.5" height="17.5" fill="#9342a4"/>
+    <rect x="297.5" y="439" width="17.5" height="17.5" fill="#ad5b9b"/>
+    <rect x="315" y="439" width="17.5" height="17.5" fill="#bd6a90"/>
+    <rect x="332.5" y="439" width="17.5" height="17.5" fill="#b75f8d"/>
+    <rect x="210" y="456.5" width="17.5" height="17.5" fill="#5b1ba9"/>
+    <rect x="227.5" y="456.5" width="17.5" height="17.5" fill="#6d22af"/>
+    <rect x="245" y="456.5" width="17.5" height="17.5" fill="#8733ac"/>
+    <rect x="262.5" y="456.5" width="17.5" height="17.5" fill="#a44c9d"/>
+    <rect x="280" y="456.5" width="17.5" height="17.5" fill="#c06a91"/>
+    <rect x="297.5" y="456.5" width="17.5" height="17.5" fill="#d67b82"/>
+    <rect x="315" y="456.5" width="17.5" height="17.5" fill="#ce6f83"/>
+    <rect x="332.5" y="456.5" width="17.5" height="17.5" fill="#a94e91"/>
+    <rect x="210" y="474" width="17.5" height="17.5" fill="#6e21a8"/>
+    <rect x="227.5" y="474" width="17.5" height="17.5" fill="#8831a9"/>
+    <rect x="245" y="474" width="17.5" height="17.5" fill="#af519b"/>
+    <rect x="262.5" y="474" width="17.5" height="17.5" fill="#d07088"/>
+    <rect x="280" y="474" width="17.5" height="17.5" fill="#ea8974"/>
+    <rect x="297.5" y="474" width="17.5" height="17.5" fill="#f09669"/>
+    <rect x="315" y="474" width="17.5" height="17.5" fill="#df7a78"/>
+    <rect x="332.5" y="474" width="17.5" height="17.5" fill="#b0528f"/>
+    <rect x="210" y="491.5" width="17.5" height="17.5" fill="#7e29a6"/>
+    <rect x="227.5" y="491.5" width="17.5" height="17.5" fill="#9b3fa0"/>
+    <rect x="245" y="491.5" width="17.5" height="17.5" fill="#c56290"/>
+    <rect x="262.5" y="491.5" width="17.5" height="17.5" fill="#e48677"/>
+    <rect x="280" y="491.5" width="17.5" height="17.5" fill="#f59b66"/>
+    <rect x="297.5" y="491.5" width="17.5" height="17.5" fill="#f5a05f"/>
+    <rect x="315" y="491.5" width="17.5" height="17.5" fill="#e18470"/>
+    <rect x="332.5" y="491.5" width="17.5" height="17.5" fill="#b95c88"/>
+    <rect x="210" y="509" width="17.5" height="17.5" fill="#8c33a0"/>
+    <rect x="227.5" y="509" width="17.5" height="17.5" fill="#a84a97"/>
+    <rect x="245" y="509" width="17.5" height="17.5" fill="#cb668a"/>
+    <rect x="262.5" y="509" width="17.5" height="17.5" fill="#ea8a74"/>
+    <rect x="280" y="509" width="17.5" height="17.5" fill="#f99f60"/>
+    <rect x="297.5" y="509" width="17.5" height="17.5" fill="#ef915f"/>
+    <rect x="315" y="509" width="17.5" height="17.5" fill="#d37776"/>
+    <rect x="332.5" y="509" width="17.5" height="17.5" fill="#a84d89"/>
+    <rect x="210" y="526.5" width="17.5" height="17.5" fill="#7a29a2"/>
+    <rect x="227.5" y="526.5" width="17.5" height="17.5" fill="#90399e"/>
+    <rect x="245" y="526.5" width="17.5" height="17.5" fill="#b45591"/>
+    <rect x="262.5" y="526.5" width="17.5" height="17.5" fill="#d27382"/>
+    <rect x="280" y="526.5" width="17.5" height="17.5" fill="#e9896d"/>
+    <rect x="297.5" y="526.5" width="17.5" height="17.5" fill="#df7c6e"/>
+    <rect x="315" y="526.5" width="17.5" height="17.5" fill="#bf617f"/>
+    <rect x="332.5" y="526.5" width="17.5" height="17.5" fill="#943d8c"/>
+    <rect x="210" y="544" width="17.5" height="17.5" fill="#6b23a8"/>
+    <rect x="227.5" y="544" width="17.5" height="17.5" fill="#7b2ca2"/>
+    <rect x="245" y="544" width="17.5" height="17.5" fill="#973d98"/>
+    <rect x="262.5" y="544" width="17.5" height="17.5" fill="#b7558b"/>
+    <rect x="280" y="544" width="17.5" height="17.5" fill="#cc6a7d"/>
+    <rect x="297.5" y="544" width="17.5" height="17.5" fill="#c7657d"/>
+    <rect x="315" y="544" width="17.5" height="17.5" fill="#a64b88"/>
+    <rect x="332.5" y="544" width="17.5" height="17.5" fill="#7c2e91"/>
+    <rect x="210" y="561.5" width="17.5" height="17.5" fill="#5d1da5"/>
+    <rect x="227.5" y="561.5" width="17.5" height="17.5" fill="#6e25a0"/>
+    <rect x="245" y="561.5" width="17.5" height="17.5" fill="#823095"/>
+    <rect x="262.5" y="561.5" width="17.5" height="17.5" fill="#98418c"/>
+    <rect x="280" y="561.5" width="17.5" height="17.5" fill="#a94e83"/>
+    <rect x="297.5" y="561.5" width="17.5" height="17.5" fill="#a04882"/>
+    <rect x="315" y="561.5" width="17.5" height="17.5" fill="#80358c"/>
+    <rect x="332.5" y="561.5" width="17.5" height="17.5" fill="#62228f"/>
+  </g>
+  <text x="200" y="603" class="small">Raw 8x8 Thermal Array</text>
+</svg>
