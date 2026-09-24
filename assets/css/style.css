@@ -540,6 +540,27 @@ a.hoverline:hover {
   object-fit: contain;
 }
 
+.projects-load-more {
+  margin: 4px 0 36px;
+  text-align: center;
+}
+
+#load-more-projects {
+  background: var(--navy-700);
+  border-radius: 3px;
+  letter-spacing: 0.08em;
+  padding: 0 28px;
+}
+
+#load-more-projects:hover,
+#load-more-projects:focus {
+  background: var(--navy-500);
+}
+
+#load-more-projects[hidden] {
+  display: none;
+}
+
 .travel-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
