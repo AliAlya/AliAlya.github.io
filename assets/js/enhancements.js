@@ -41,8 +41,7 @@
   }
 
   const savedTheme = getSavedTheme();
-  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  applyTheme(savedTheme || (prefersDark ? "dark" : "light"));
+  applyTheme(savedTheme || "light");
 
   if (themeToggle) {
     themeToggle.addEventListener("click", function () {
@@ -119,17 +118,32 @@
   initializeCollapsibleSections();
 
   document.querySelectorAll('nav a[href^="#"]').forEach(function (navigationLink) {
-    navigationLink.addEventListener("click", function () {
+    navigationLink.addEventListener("click", function (event) {
       const targetId = navigationLink.getAttribute("href").slice(1);
       const targetSection = targetId ? document.getElementById(targetId) : null;
 
-      if (targetSection && targetSection.classList.contains("is-collapsed")) {
+      if (!targetSection) {
+        return;
+      }
+
+      event.preventDefault();
+
+      if (targetSection.classList.contains("is-collapsed")) {
         const sectionToggle = targetSection.querySelector(".section-collapse-toggle");
 
         if (sectionToggle) {
           sectionToggle.click();
         }
       }
+
+      window.history.pushState(null, "", `#${targetId}`);
+      window.requestAnimationFrame(function () {
+        const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        targetSection.scrollIntoView({
+          behavior: reduceMotion ? "auto" : "smooth",
+          block: "start"
+        });
+      });
     });
   });
 
