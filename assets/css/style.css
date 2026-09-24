@@ -540,6 +540,69 @@ a.hoverline:hover {
   object-fit: contain;
 }
 
+.travel-photo-wrap {
+  height: 360px;
+  overflow: hidden;
+  position: relative;
+}
+
+.travel-photo-wrap > img:first-child {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.travel-plane-art {
+  filter: drop-shadow(0 8px 14px rgba(7, 20, 38, 0.3));
+  position: absolute;
+  right: 32px;
+  top: 28px;
+  transform: rotate(-5deg);
+  width: 150px;
+}
+
+.travel-photo-label {
+  background: rgba(11, 31, 58, 0.92);
+  bottom: 24px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  left: 24px;
+  letter-spacing: 0.04em;
+  padding: 12px 18px;
+  position: absolute;
+}
+
+.photo-credit {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.travel-map-grid {
+  margin-bottom: 0;
+}
+
+.travel-map-card {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.travel-map-card .card-content {
+  display: block;
+  padding: 18px 20px;
+}
+
+.travel-map-card .card-title {
+  margin: 0;
+}
+
+.travel-map-card iframe {
+  border: 0;
+  display: block;
+  height: 320px;
+  width: 100%;
+}
+
 .card-action a.btn-floating {
   margin-bottom: 0;
 }
@@ -690,6 +753,26 @@ small {
 }
 
 @media (max-width: 600px) {
+  .travel-photo-wrap {
+    height: 260px;
+  }
+
+  .travel-plane-art {
+    right: 18px;
+    top: 18px;
+    width: 96px;
+  }
+
+  .travel-photo-label {
+    bottom: 16px;
+    font-size: 1.1rem;
+    left: 16px;
+  }
+
+  .travel-map-card iframe {
+    height: 260px;
+  }
+
   h2 {
     font-size: 22px;
     line-height: 200%;
