@@ -1,10 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
   <title id="title">Airplane</title>
-  <desc id="desc">A flat two-dimensional airplane illustration in navy and blue.</desc>
-  <circle cx="128" cy="128" r="120" fill="#f4f8fc" stroke="#8ec5ff" stroke-width="8"/>
+  <desc id="desc">A flat two-dimensional airplane illustration in white and blue.</desc>
   <g transform="rotate(32 128 128)">
-    <path fill="#0b1f3a" d="M128 18c-10 0-15 14-15 29v53l-72 42v22l72-20v49l-25 18v18l40-10 40 10v-18l-25-18v-49l72 20v-22l-72-42V47c0-15-5-29-15-29z"/>
-    <path fill="#2f6fad" d="M113 100v44l-50 14v-8l50-29zm30 0v44l50 14v-8l-50-29z"/>
-    <path fill="#8ec5ff" d="M121 48h14v45h-14z"/>
+    <path fill="#ffffff" d="M128 18c-10 0-15 14-15 29v53l-72 42v22l72-20v49l-25 18v18l40-10 40 10v-18l-25-18v-49l72 20v-22l-72-42V47c0-15-5-29-15-29z"/>
+    <path fill="#8ec5ff" d="M113 100v44l-50 14v-8l50-29zm30 0v44l50 14v-8l-50-29z"/>
+    <path fill="#dbeeff" d="M121 48h14v45h-14z"/>
   </g>
 </svg>
