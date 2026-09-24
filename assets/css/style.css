@@ -598,7 +598,7 @@ a.hoverline:hover {
   position: relative;
 }
 
-.travel-copy > p:not(.photo-credit) {
+.travel-copy > p:not(.travel-eyebrow) {
   line-height: 1.6;
   margin: 0 0 18px;
   max-width: 30rem;
@@ -619,17 +619,6 @@ a.hoverline:hover {
   color: #fff;
   font-size: 0.8rem;
   padding: 6px 10px;
-}
-
-.photo-credit {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.72rem;
-  margin: 0;
-  position: relative;
-}
-
-.photo-credit a {
-  color: var(--navy-300);
 }
 
 .travel-map-grid {
